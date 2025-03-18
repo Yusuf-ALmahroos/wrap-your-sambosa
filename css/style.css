@@ -1,0 +1,57 @@
+body
+{
+  background-color: #624CABA0;
+}
+
+h1
+{
+  color: #A0DDFF;
+}
+
+#main-page
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 600px;
+}
+
+#game-roles-list
+{
+  width: 60%;
+  color: #A0DDFF;
+  justify-self: flex-start;
+}
+
+.game-btn
+{
+  width: 90px;
+  height: 30px;
+  border-radius: 15px;
+  color: #f4f4f4;
+}
+
+#main-easy-btn
+{
+  background-color: green;
+}
+
+#main-mid-btn
+{
+  background-color: orange;
+}
+
+#main-hard-btn
+{
+  background-color: red;
+}
+#main-start-btn
+{
+  background-color: blue;
+}
+
+#game-page 
+{
+  display: none;
+}
