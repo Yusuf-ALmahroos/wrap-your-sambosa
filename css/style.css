@@ -54,4 +54,45 @@ h1
 #game-page 
 {
   display: none;
+  flex-direction: column;
+  align-items: center;
+  height: 600px;
+  justify-content: flex-start;
+}
+
+#game-p-header
+{
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#progress-box
+{
+  width: 60vw;
+  height: 15px;
+  border: 2px solid black;
+  border-radius: 15px;
+  background-color: #f4f4f4;
+}
+
+#game-main-section
+{
+  display: flex;
+  width: 80vw;
+  justify-content: space-between;
+}
+
+#reset-btn
+{
+  background-color: purple;
+}
+
+.content-box
+{
+  width: 120px;
+  height: 50px;
+  background-color: #f4f4f4;
+  border-radius: 15px;
 }
