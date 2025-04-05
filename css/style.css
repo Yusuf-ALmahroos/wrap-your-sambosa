@@ -82,6 +82,7 @@ h1
   display: flex;
   width: 80vw;
   justify-content: space-between;
+  gap: 10px;
 }
 
 #reset-btn
@@ -95,4 +96,73 @@ h1
   height: 50px;
   background-color: #f4f4f4;
   border-radius: 15px;
+}
+
+#solution-box
+{
+  width: 200px;
+  height: 200px;
+  background-color: #f4f4f4;
+  border-radius: 15px;
+}
+
+#game-keypad
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+#middle-row
+{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.game-arrow
+{
+  width: 0;
+  height: 0;
+  border-style: solid;
+  background: none;
+  border-color: transparent;
+  cursor: pointer;
+}
+
+.game-arrow.up
+{
+  border-width: 0 20px 30px 20px;
+  border-bottom-color: black;
+}
+
+.game-arrow.down
+{
+  border-width: 30px 20px 0 20px;
+  border-bottom-color: black;
+}
+
+.game-arrow.left
+{
+  border-width: 20px 30px 20px 0;
+  border-bottom-color: black;
+}
+
+.game-arrow.right
+{
+  border-width: 20px 0 20px 30px;
+  border-bottom-color: black;
+}
+
+.add
+{
+  width: 50px;
+  height: 50px;
+  background-color: #555;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
