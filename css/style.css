@@ -30,25 +30,50 @@ h1
   height: 30px;
   border-radius: 15px;
   color: #f4f4f4;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-#main-easy-btn
+.btn-easy
 {
   background-color: green;
 }
 
-#main-mid-btn
+.btn-easy:hover,
+.btn-easy.active
+{
+  background-color: rgb(0, 73, 0);
+}
+
+.btn-mid
 {
   background-color: orange;
 }
 
-#main-hard-btn
+.btn-mid:hover,
+.btn-mid.active
+{
+  background-color: rgb(156, 102, 0);
+}
+
+.btn-hard
 {
   background-color: red;
 }
+
+.btn-hard:hover,
+.btn-hard.active
+{
+  background-color: rgb(134, 0, 0);
+}
+
 #main-start-btn
 {
   background-color: blue;
+}
+#main-start-btn:hover
+{
+  background-color: rgb(0, 0, 116);
 }
 
 #game-page 
@@ -106,12 +131,21 @@ h1
   border-radius: 15px;
 }
 
+#left-section
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
 #game-keypad
 {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  height: 500px;
 }
 
 #middle-row
@@ -133,33 +167,45 @@ h1
 
 .game-arrow.up
 {
-  border-width: 0 20px 30px 20px;
-  border-bottom-color: black;
+	width: 0;
+	height: 0;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-bottom: 30px solid black;
 }
 
 .game-arrow.down
 {
-  border-width: 30px 20px 0 20px;
-  border-bottom-color: black;
+	width: 0;
+	height: 0;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-top: 30px solid black;
 }
 
 .game-arrow.left
 {
-  border-width: 20px 30px 20px 0;
-  border-bottom-color: black;
+	width: 0;
+	height: 0;
+	border-top: 20px solid transparent;
+	border-right: 30px solid black;
+	border-bottom: 20px solid transparent
 }
 
 .game-arrow.right
 {
-  border-width: 20px 0 20px 30px;
-  border-bottom-color: black;
+	width: 0;
+	height: 0;
+	border-top: 20px solid transparent;
+	border-left: 30px solid black;
+	border-bottom: 20px solid transparent;
 }
 
 .add
 {
   width: 50px;
   height: 50px;
-  background-color: #555;
+  background-color: black;
   color: white;
   font-weight: bold;
   border: none;

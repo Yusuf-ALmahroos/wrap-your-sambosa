@@ -19,13 +19,13 @@
       </ul>
     </div>
     <div>
-      <button class="game-btn" id="main-easy-btn">
+      <button class="game-btn difficulty-btn btn-easy" data-level = "easy">
         Easy
       </button>
-      <button class="game-btn" id="main-mid-btn">
+      <button class="game-btn difficulty-btn btn-mid" data-level = "mid">
         Mid
       </button>
-      <button class="game-btn" id="main-hard-btn">
+      <button class="game-btn difficulty-btn btn-hard" data-level = "hard">
         Hard
       </button>
     </div>
@@ -43,13 +43,13 @@
       <div id="left-section">
         <button class="game-btn" id="reset-btn">Reset</button>
         <div id="game-keypad">
-          <button class="game-arrow up"></button>
+          <button class="game-arrow keypad-btn up" data-type="UP"></button>
           <div id = "middle-row">
-            <button class="game-arrow right"></button>
-            <button class="add">ADD</button>
-            <button class="game-arrow left"></button>
+            <button class="game-arrow keypad-btn left" data-type="LEFT"></button>
+            <button class="keypad-btn add" data-type="ADD">ADD</button>
+            <button class="game-arrow keypad-btn right" data-type="RIGHT"></button>
           </div>
-          <button class="game-arrow down"></button>
+          <button class="game-arrow keypad-btn down" data-type="DOWN"></button>
         </div>
       </div>
       <div id="mid-section">
