@@ -99,13 +99,23 @@ h1
   height: 15px;
   border: 2px solid black;
   border-radius: 15px;
-  background-color: #f4f4f4;
+  background: white;
+}
+
+#progress
+{
+  height: 100%;
+  width: 0%;
+  background: blue; /* Gradient */
+  border-radius: 15px 0 0 15px;
+  transition: width 0.4s ease;
 }
 
 #game-main-section
 {
   display: flex;
   width: 80vw;
+  height: 50%;
   justify-content: space-between;
   gap: 10px;
 }
@@ -113,6 +123,14 @@ h1
 #reset-btn
 {
   background-color: purple;
+}
+
+#mid-section
+{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
 }
 
 .content-box
@@ -125,10 +143,13 @@ h1
 
 #solution-box
 {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   background-color: #f4f4f4;
   border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #left-section
@@ -211,4 +232,25 @@ h1
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.game-solution
+{
+  width: 130px;
+  height: 130px;
+  background-color: rgb(216, 164, 91);
+  clip-path: polygon(50% 10%, 100% 50%, 50% 150%, 0% 50%);
+}
+
+.diamond
+{
+  width: 130px;
+  height: 130px;
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+
+.h-rectangle
+{
+  width: 80px;
+  height: 130px;
 }
