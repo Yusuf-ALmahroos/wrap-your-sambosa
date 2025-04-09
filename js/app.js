@@ -39,6 +39,7 @@ function game_render()
     gameStateEl.innerHTML = "Timeout Its Midnight, I want Shawarma"
     clearInterval(interval);
     clearTimeout(timerHandle);
+    timerBoxSec = 0;
   }
   else if (gameState === "won")
   {
@@ -56,7 +57,7 @@ function game_render()
     clearInterval(interval);
     clearTimeout(timerHandle);
   }
-  timerBoxSec -= 100;
+  if(timerBoxSec !== 0) timerBoxSec -= 100;
   gameTimerBoxEl.innerHTML = timerBoxSec / 1000;
   game_progressBar();
 }
