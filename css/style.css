@@ -138,7 +138,11 @@ h1
   width: 120px;
   height: 50px;
   background-color: #f4f4f4;
+  color: blueviolet;
   border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #solution-box
@@ -150,6 +154,14 @@ h1
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#right-section
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
 }
 
 #left-section
@@ -236,21 +248,53 @@ h1
 
 .game-solution
 {
-  width: 130px;
+  width: 100px;
   height: 130px;
   background-color: rgb(216, 164, 91);
-  clip-path: polygon(50% 10%, 100% 50%, 50% 150%, 0% 50%);
 }
 
-.diamond
+.samosa-1
 {
-  width: 130px;
   height: 130px;
-  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+  aspect-ratio: 1;
+  clip-path: polygon(0 0,100% 0,100% 50%,0 100%);
 }
 
-.h-rectangle
+.samosa-2
+{
+  width: 100px;
+  height: 80px;
+}
+
+.samosa-3
+{
+  width: 100px;
+  height: 80px;
+  aspect-ratio: 1;
+  clip-path: polygon(0 100%,0 0,100% 100%);
+}
+
+.springroll-1
+{
+  height: 90px;
+}
+
+.springroll-2
+{
+  width: 90px;
+}
+
+.springroll-3
 {
   width: 80px;
-  height: 130px;
+}
+
+.springroll-4
+{
+  height: 60px;
+}
+
+.springroll-5
+{
+  height: 30px;
 }

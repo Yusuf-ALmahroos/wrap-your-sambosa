@@ -1,7 +1,7 @@
 const foodTypes = 
 [
-  {name: "Sambosa" , moves: ["UP", "LEFT", "RIGHT", "ADD"]},
-  {name: "Springrolls" , moves: ["UP", "LEFT", "RIGHT", "ADD", "UP", "UP"]}
+  {name: "Sambosa" , moves: ["LEFT", "UP", "RIGHT", "NEXT"]},
+  {name: "Springrolls" , moves: ["UP", "LEFT", "RIGHT", "UP", "UP", "NEXT"]}
 ];
 
 const foodQueue = [];
@@ -10,15 +10,16 @@ let gameDiff   = "easy";
 let gameState  = "playing";
 let currentSet = [];
 
-const easyTimoutMs  = 30 * 1000;
+const easyTimoutMs  = 27 * 1000;
 const midTimoutMs   = 25 * 1000;
 const hardTimeoutMs = 20 * 1000; 
-let timerHandle = null;
-let timoutMs    = easyTimoutMs;
-let interval    = null;
-let queueIdx    = 0;
-let currentItem = "";
+let timerHandle    = null;
+let timoutMs       = easyTimoutMs;
+let interval       = null;
+let queueIdx       = 0;
+let currentItem    = "";
 let completedItems = 0;
+let timerBoxSec    = 0;
 
 const mainStartBtnEl   = document.getElementById('main-start-btn');
 const mainPageEl       = document.getElementById('main-page')
@@ -29,24 +30,34 @@ const gameProgress     = document.getElementById('progress');
 const gameItemBoxEl    = document.getElementById('item-box');
 const gameSolutionEl   = document.getElementById('game-solution-id');
 const gameNextMove     = document.getElementById('next-move');
+const gameTimerBoxEl   = document.getElementById('timer-box');
 
 function game_render()
 {
   if(gameState === "failed")
   {
-    gameStateEl.innerHTML = "Timeout You lost!"
+    gameStateEl.innerHTML = "Timeout Its Midnight, I want Shawarma"
     clearInterval(interval);
     clearTimeout(timerHandle);
   }
   else if (gameState === "won")
   {
-    gameStateEl.innerHTML = "Good you won!"
+    if(gameDiff === "easy")
+    {
+      gameStateEl.innerHTML = "Good well done!"
+    } else if (gameDiff === "mid")
+    {
+      gameStateEl.innerHTML = "* Amazing *"
+    }
+    else
+    {
+      gameStateEl.innerHTML = "Get A life!"
+    }
+    clearInterval(interval);
     clearTimeout(timerHandle);
   }
-  else
-  {
-
-  }
+  timerBoxSec -= 100;
+  gameTimerBoxEl.innerHTML = timerBoxSec / 1000;
   game_progressBar();
 }
 
@@ -65,20 +76,22 @@ function game_updateQueue ()
   gameNextMove.innerHTML = currentSet[0];
 
   currentItem = foodQueue[queueIdx].name;
-  if(currentItem === foodTypes[0].name)
-  {
-    //gameSolutionEl.style.clipPath = "polygon(50% 0, 100% 50%, 50% 100%, 0 50%)"
-  }
-  else
-  {
-    gameSolutionEl.classList.remove('diamond')
-    gameSolutionEl.classList.add('h-rectangle')
-  }
+  gameSolutionEl.classList.remove('springroll-5')
+  gameSolutionEl.classList.remove('samosa-3')
   queueIdx++;
 }
 
 function game_resetRound ()
 {
+  gameState      = "playing";
+  currentSet     = [];
+  queueIdx       = 0;
+  currentItem    = "";
+  completedItems = 0;
+  gameStateEl.innerHTML = "Playing..."
+  clearInterval(interval);
+  clearTimeout(timerHandle);
+  game_start();
 
 }
 
@@ -107,19 +120,20 @@ function game_changeShape ()
 {
   if(currentItem === foodTypes[0].name)
   {
-    console.log(currentSet.length)
     switch(currentSet.length)
     {
       case 3:
-        gameSolutionEl.style.clipPath = "polygon(50% 0%, 100% 50%, 50% 150%, 0% 50%)"
+        gameSolutionEl.classList.add('samosa-1');
         break;
 
       case 2:
-        gameSolutionEl.style.clipPath = "polygon(50% 10%, 100% 50%, 50% 150%, 0% 50%)"
+        gameSolutionEl.classList.remove('samosa-1');
+        gameSolutionEl.classList.add('samosa-2');
         break;
 
       case 1:
-        gameSolutionEl.style.clipPath = "polygon(50% 0%, 100% 75%, 50% 75%, 0% 75%)"
+        gameSolutionEl.classList.remove('samosa-2');
+        gameSolutionEl.classList.add('samosa-3');
         break;
     }
   }
@@ -127,16 +141,28 @@ function game_changeShape ()
   {
     switch(currentSet.length)
     {
+      case 5:
+        gameSolutionEl.classList.add('springroll-1');
+        break;
+
+      case 4:
+        gameSolutionEl.classList.remove('springroll-1');
+        gameSolutionEl.classList.add('springroll-2');
+        break;
+
       case 3:
+        gameSolutionEl.classList.remove('springroll-2');
+        gameSolutionEl.classList.add('springroll-3');
         break;
 
       case 2:
+        gameSolutionEl.classList.remove('springroll-3');
+        gameSolutionEl.classList.add('springroll-4');
         break;
 
       case 1:
-        break;
-
-      case 0:
+        gameSolutionEl.classList.remove('springroll-4');
+        gameSolutionEl.classList.add('springroll-5');
         break;
     }
   }
@@ -187,6 +213,12 @@ function game_start()
   }
   mainPageEl.style.display = 'none';
   gamePageEl.style.display = 'flex';
+  timerHandle = setTimeout(() => 
+  {
+    gameState = "failed";
+  }, timoutMs)
+  timerBoxSec = timoutMs;
+  interval = setInterval(game_render, 100);
   game_updateQueue(); 
 }
 
@@ -229,11 +261,6 @@ function game_init()
 {
   game_setMainBtnsListeners();
   game_setGameBtnsListeners();
-  timerHandle = setTimeout(() => 
-  {
-    gameState = "failed";
-  }, timoutMs)
-  interval = setInterval(game_render, 100);
 }
 
 game_init();

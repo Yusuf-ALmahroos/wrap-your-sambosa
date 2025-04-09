@@ -13,13 +13,12 @@
     <div id="game-roles-list">
       <p>How To play</p>
       <ul>
-        <li>The Player Shall</li>
-        <li>The Player Shall</li>
-        <li>The Player Shall</li>
+        <li>The Player shall follow the moves in the right box</li>
+        <li>The Player Shall complete the wraps before its dark</li>
       </ul>
     </div>
     <div>
-      <button class="game-btn difficulty-btn btn-easy" data-level = "easy">
+      <button class="game-btn difficulty-btn btn-easy active" data-level = "easy">
         Easy
       </button>
       <button class="game-btn difficulty-btn btn-mid" data-level = "mid">
@@ -48,7 +47,7 @@
           <button class="game-arrow keypad-btn up" data-type="UP"></button>
           <div id = "middle-row">
             <button class="game-arrow keypad-btn left" data-type="LEFT"></button>
-            <button class="keypad-btn add" data-type="ADD">ADD</button>
+            <button class="keypad-btn add" data-type="NEXT">NEXT</button>
             <button class="game-arrow keypad-btn right" data-type="RIGHT"></button>
           </div>
           <button class="game-arrow keypad-btn down" data-type="DOWN"></button>
@@ -67,7 +66,7 @@
         <div class="content-box" id="next-move">next move</div>
       </div>
     </div>
-    <h1 id="game-state">Still in Game</h1>
+    <h1 id="game-state">Playing...</h1>
   </div>
 </body>
 </html>
