@@ -1,11 +1,16 @@
+:root 
+{
+  --keypad-color: #D8FB62;
+}
+
 body
 {
-  background-color: #624CABA0;
+  background-color: #8562fb;
 }
 
 h1
 {
-  color: #A0DDFF;
+  color: #112A46;
 }
 
 #main-page
@@ -13,14 +18,16 @@ h1
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 30px;
   height: 600px;
 }
 
 #game-roles-list
 {
   width: 60%;
-  color: #A0DDFF;
+  color: #112A46;
+  font-size: large;
   justify-self: flex-start;
 }
 
@@ -42,38 +49,38 @@ h1
 .btn-easy:hover,
 .btn-easy.active
 {
-  background-color: rgb(0, 73, 0);
+  background-color: rgb(3, 222, 3);
 }
 
 .btn-mid
 {
-  background-color: orange;
+  background-color: rgb(141, 92, 0);
 }
 
 .btn-mid:hover,
 .btn-mid.active
 {
-  background-color: rgb(156, 102, 0);
+  background-color: rgb(255, 178, 34);
 }
 
 .btn-hard
 {
-  background-color: red;
+  background-color: rgb(132, 0, 0);
 }
 
 .btn-hard:hover,
 .btn-hard.active
 {
-  background-color: rgb(134, 0, 0);
+  background-color: rgb(255, 0, 0);
 }
 
 #main-start-btn
 {
-  background-color: blue;
+  background-color: rgb(0, 0, 167);
 }
 #main-start-btn:hover
 {
-  background-color: rgb(0, 0, 116);
+  background-color: rgb(22, 22, 255);
 }
 
 #game-page 
@@ -123,6 +130,11 @@ h1
 #reset-btn
 {
   background-color: purple;
+}
+
+#reset-btn:hover
+{
+  background-color: rgb(255, 13, 255);
 }
 
 #mid-section
@@ -204,7 +216,7 @@ h1
 	height: 0;
 	border-left: 15px solid transparent;
 	border-right: 15px solid transparent;
-	border-bottom: 30px solid black;
+	border-bottom: 30px solid var(--keypad-color);
 }
 
 .game-arrow.down
@@ -213,7 +225,7 @@ h1
 	height: 0;
 	border-left: 15px solid transparent;
 	border-right: 15px solid transparent;
-	border-top: 30px solid black;
+	border-top: 30px solid var(--keypad-color);
 }
 
 .game-arrow.left
@@ -221,7 +233,7 @@ h1
 	width: 0;
 	height: 0;
 	border-top: 20px solid transparent;
-	border-right: 30px solid black;
+	border-right: 30px solid var(--keypad-color);
 	border-bottom: 20px solid transparent
 }
 
@@ -230,7 +242,7 @@ h1
 	width: 0;
 	height: 0;
 	border-top: 20px solid transparent;
-	border-left: 30px solid black;
+	border-left: 30px solid var(--keypad-color);
 	border-bottom: 20px solid transparent;
 }
 
@@ -238,8 +250,8 @@ h1
 {
   width: 50px;
   height: 50px;
-  background-color: black;
-  color: white;
+  background-color: var(--keypad-color);
+  color: #112A46;
   font-weight: bold;
   border: none;
   border-radius: 5px;
@@ -281,20 +293,32 @@ h1
 
 .springroll-2
 {
+  height: 90px;
   width: 90px;
 }
 
 .springroll-3
 {
+  height: 90px;
   width: 80px;
 }
 
 .springroll-4
 {
   height: 60px;
+  width: 80px;
 }
 
 .springroll-5
 {
   height: 30px;
+  width: 80px;
+}
+
+@media (max-width: 600px) 
+{
+  #game-state
+  {
+    font-size: large;
+  }
 }
